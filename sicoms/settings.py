@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY_SICOMS")
+SECRET_KEY = '3-rcp1xd1u!#zw8l!^ywx*09x)uumdw6(s=8zpxcd%b5p-x@9t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,7 +137,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'moeinsspoti'
-EMAIL_HOST_PASSWORD = os.environ.get("PASS_EMAIL")
+EMAIL_HOST_PASSWORD = 'bqrejsycgvpttzka'
 
 
 TINYMCE_DEFAULT_CONFIG = {
