@@ -1,0 +1,140 @@
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .article-img {
+    height: 50px;
+    width: 50px;
+    margin-right: 16px;
+  }
+  
+  .article-img-main {
+    border-radius: 10px;
+  }
+
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #1f2833
+  }
+  
+  .article-metadata a:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+
+
+ .btn-darky {
+    color: #c5c6c7 !important;
+    background-color: #1f2833 !important;
+    border-color: #1f2833 !important;
+  }
+
+  #login, #forget {
+    background-color: rgba(255, 255, 255, .9) !important;
+    border-radius: 1.5rem;
+  }
+
+  #register {
+    background-color: rgba(255, 255, 255, .9) !important;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+  }
+  
+  small a {
+    color: #444444;
+  }
+
+  #about img {
+    border-radius: .7rem;
+    
+  }
+
+  #article {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.7rem;
+  }
+  .article-metadata a {
+    color: black;
+  }
+  
+  nav li .article-img {
+    height: 2rem;
+    width: 2rem;
+  }
+  
+  nav li .article-img-main {
+    border-radius: 10px;
+  }
+
+  /*====MEDIA QUERIES====*/
+  @media (max-width: 1199.98px) {
+    
+  }
+  /* Devices under 992px (xl) */
+  @media (max-width: 991.98px) {
+    #article h2{
+      font-size: 1.5rem;
+    }
+    #article p {
+      font-size: .9rem;
+    }
+  }
+  /* Devices under 768px (md) */
+  @media (max-width: 767.98px) {
+    #article h2{
+      font-size: 1.4rem;
+    }
+    #article p {
+      font-size: .9rem;
+    }
+  }
+  /* Devices under 576px (sm) */
+  @media (max-width: 575.98px) {
+    #article h2{
+      font-size: 1.3rem;
+    }
+    #article p {
+      font-size: .9rem;
+    }
+  }
+  @media (max-width: 400.98px) {
+   
+  }

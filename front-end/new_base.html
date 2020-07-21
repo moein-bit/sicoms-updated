@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>SICoMS</title>
+	{% endif %}
+	<link rel="shortcut icon" href="{% static 'homepage/images/favi/android-icon-36x36.png' %}">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'homepage/css/bootstrap.min.css' %}">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{% static 'homepage/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'homepage/css/article-styles.css' %}">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="navigation-sticky">
+		<!-- Navigation -->
+		<nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top">
+			 <div class="container">
+				<a href="{% url 'homepage-home' %}" class="navbar-brand"><img 
+					src="{% static 'homepage/images/logo_.png' %}" alt="" class="mr-2">SICoMS</a>
+				
+				<button class="navbar-toggler" type="button" 
+						data-toggle="collapse" data-target="#navbarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="{% url 'homepage-home' %}" 
+							class="nav-link active">Home</a></li>
+						<li class="nav-item"><a href="{% url 'about-page' %}" 
+							class="nav-link">About Us</a></li>
+						<li class="nav-item"><a href="{% url 'events-home' %}" 
+							class="nav-link">Events</a></li>
+						<li class="nav-item"><a href="{% url 'workshops-home' %}" 
+							class="nav-link">Workshops</a></li>
+						{% if user.is_authenticated %}
+							<li class="nav-item"><a href="{% url 'profile' %}" 
+								class="nav-link">{{ user.profile.first_name }}</a></li>
+							<li class="nav-item"><a href="{% url 'logout' %}" 
+								class="nav-link">Logout</a></li>
+						{% else %}
+							<li class="nav-item"><a href="{% url 'login' %}" 
+								class="nav-link">Login</a></li>
+							<li class="nav-item"><a href="{% url 'register' %}" 
+								class="nav-link">Sign Up</a></li>
+						{% endif %}
+							
+					</ul>
+				</div>
+
+			 </div>
+		</nav>
+		<!-- End Navigation -->
+
+		{% if messages %}
+			{% for message in messages %}
+				{% if message.tags == 'error' %}
+					<div class="alert alert-danger">
+						{{ message }}
+					</div>
+				{% else %}
+					<div class="alert alert-{{message.tags}}">
+						{{ message }}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		
+		{% block home %}
+		{% endblock home %}
+
+
+	<!-- jQuery -->
+	<script src="{% static 'homepage/js/jquery-3.4.1.min.js' %}"></script>
+	<!-- Bootstrap JS -->
+	<script src="{% static 'homepage/js/bootstrap.min.js' %}"></script>
+	<!-- Popper JS -->
+	<script src="{% static 'homepage/js/popper.min.js' %}"></script>
+	<!-- Font Awesome -->
+	<script src="{% static 'homepage/js/all.min.js' %}"></script>
+
+	<!-- End Script Source Files -->
+</body>
+</html>

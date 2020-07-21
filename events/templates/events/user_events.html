@@ -1,0 +1,42 @@
+{% extends "homepage/base.html" %}
+{% load static %}
+{% block innercontent %}
+    <h1 class="mb-3" style="color: #c5c6c7">Events By {{view.kwargs.username}}, ({{page_obj.paginator.count}})</h1>
+
+    {% for event in events %}
+        <article class="media content-section py-4 pr-5" id="article">
+            <img  class="rounded-circle article-img" src="{{ event.author.profile.image.url }}" alt="">
+            <div class="media-body" id="this">
+            <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user-events' event.author.username %}" id="hover">{{ event.author }}</a>
+                <small class="text-muted">{{ event.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'event-detail' event.id %}" id="hover">{{ event.title }}</a></h2>
+            <img alt="" class="w-75 mx-auto d-block rounded" src="{{ event.photo.url }}"><br>
+            <p class="article-content text-justify">{{ event.summary|safe }}</p>
+            <a href="{% url 'event-detail' event.id %}" class="btn btn-dark btn-sm">READ THE FULL ARTICLE</a>
+            </div>
+        </article>
+    {% endfor %}
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-light mb-4 btn-sm" href="?page=1">First</a>
+            <a class="btn btn-outline-light mb-4 btn-sm" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <a class="btn btn-light btn-sm mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-light mb-4 btn-sm" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-light mb-4 btn-sm" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="btn btn-outline-light mb-4 btn-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+    {% endif %}
+
+    
+{% endblock innercontent %}
